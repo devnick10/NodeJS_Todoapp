@@ -36,4 +36,9 @@ if(process.env.NODE_ENV === "development"){
         res.send("server is ready")
     })
 }
+if(process.env.NODE_ENV === "production"){
+    app.get('/',(req,res)=>{
+        res.send("Working Good")
+    })
+}
 
