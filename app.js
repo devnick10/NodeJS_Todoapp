@@ -19,9 +19,7 @@ app.use(cors({
     methods:["GET","POST","DELETE","PUT"],
     credentials:true,
 }))
-// Custom Middleware
 
-app.use(errorMiddleware)
 
 // Using Routes
 
@@ -42,3 +40,6 @@ if(process.env.NODE_ENV === "production"){
     })
 }
 
+// Custom Middleware
+// Always put error middleware at the end 
+app.use(errorMiddleware)

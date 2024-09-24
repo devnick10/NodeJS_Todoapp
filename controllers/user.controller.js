@@ -13,6 +13,7 @@ export const getMyProfile =(req,res)=>{
 
 export const register = async(req,res,next)=>{
 try {
+
   let {name,email,password} = req.body;
   
   let userExist = await userModel.findOne({email});
@@ -30,6 +31,7 @@ next(error)
 }
 export const login  = async(req,res,next)=>{
    try {
+
     let {email,password} = req.body;
     if(!email || !password)return next(new ErrorHandler("Plz fill all Field's",400))
       
@@ -42,7 +44,9 @@ export const login  = async(req,res,next)=>{
   
     sendCookie(res,user,`Welcome back ${user.name}`,200)
    } catch (error) {
+
     next(error)
+
    }
 
 }

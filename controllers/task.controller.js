@@ -54,6 +54,7 @@ export const deleteTask = async (req,res,next) => {
     const {id} = req.params
   
     const task = await taskModel.findById(id);
+    
     if(!task)return next(new ErrorHandler("Invalid Task ID",404))
   
     await task.deleteOne();
